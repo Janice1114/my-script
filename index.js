@@ -11,7 +11,7 @@ if (argv._.toString() === 'git-init') {
   shell.exec('git remote add origin https://github.com/Janice1114');
   shell.exec('git add ./');
   shell.exec('git commit -m "init project"');
-  shell.exec('git push -u origin master');
+  shell.exec('git push --set-upstream origin master');
 }
 
 // 初始化一个webpack的目录

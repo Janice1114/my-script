@@ -8,7 +8,7 @@ const argv = require('yargs').argv;
 if (argv._.toString() === 'git-init') {
   shell.echo('git init 开始');
   shell.exec('git init');
-  shell.exec('git remote add origin https://github.com/Janice1114/my-script.git');
+  shell.exec(`git remote add origin https://github.com/Janice1114/${argv.src}`);
   shell.exec('git add ./');
   shell.exec('git commit -m "init project"');
   shell.exec('git push --set-upstream origin master');

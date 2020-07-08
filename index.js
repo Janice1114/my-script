@@ -13,6 +13,12 @@ if (argv._.toString() === 'git-init') {
   shell.exec('git commit -m "init project"');
   shell.exec('git push --set-upstream origin master');
 }
+// git提交代码到远程
+if (argv._.toString() === 'git-push') {
+  shell.exec('git add ./');
+  shell.exec(`git commit -m "${argv.commit}"`);
+  shell.exec('git push');
+}
 
 // 初始化一个webpack的目录
 if (argv._.toString() === 'webp-init') {

@@ -39,4 +39,3 @@ my-script git-user --name=XXX --email=XXX // 查看全局git设置的name和emai
 
 my-script git-user --type=local // 查看当前项目下git设置的name和email
 ```
-

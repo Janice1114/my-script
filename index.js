@@ -16,7 +16,7 @@ if (argv._.toString() === 'git-init') {
 // git提交代码到远程
 if (argv._.toString() === 'git-push') {
   shell.exec('git add ./');
-  shell.exec(`git commit -m "${argv.commit}"`);
+  shell.exec(`git commit -m "${argv.m}"`);
   shell.exec('git push');
 }
 

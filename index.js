@@ -23,7 +23,9 @@ if (argv._.toString() === 'git-push') {
 // 初始化一个webpack的目录
 if (argv._.toString() === 'webp-init') {
   const type  = argv.type || 'npm'; // 使用npm yarn 还是cnpm
+  shell.echo(`执行的命令为：${type} init`);
   shell.echo(`执行的命令为：${type} add webpack webpack-cli -D`);
+  shell.exec(`${type} init`);
   shell.exec(`${type} add webpack webpack-cli -D`);
 }
 // npm, yarn, cnpm源设置
@@ -47,6 +49,18 @@ if (argv._.toString() === 'git-user') {
             : shell.exec(`git config --${type} user.name`);
   argv.email ? shell.exec(`git config --${type} user.email ${argv.email}`)
              : shell.exec(`git config --${type} user.email`);
+}
+
+if (argv._.toString() === 'git-my-count') {
+  const type  = argv.type || 'global'; //全局还是局部设置
+  // 输出
+  shell.echo(`执行的命令为：git config  user.name ${argv.name || ''}`);
+  shell.echo(`执行的命令为：git config  user.email ${argv.email || ''}`);
+  // 执行
+  argv.name ? shell.exec(`git config  user.name ${argv.name}`)
+            : shell.exec(`git config  user.name`);
+  argv.email ? shell.exec(`git config user.email ${argv.email}`)
+             : shell.exec(`git config user.email`);
 }
 
 // 全局/局部查看git config

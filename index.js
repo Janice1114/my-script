@@ -45,7 +45,7 @@ if (argv._.toString() === 'npm-src') {
 if (argv._.toString() === 'git-user') {
   const type  = argv.type || 'global'; //全局还是局部设置
   // 输出
-  shell.echo(`执行的命令为：git config --${type} user.name ${argv.name || ''}`);
+  shell.echo(`执行的命令为：git config  user.name ${argv.name || ''}`);
   shell.echo(`执行的命令为：git config --${type} user.email ${argv.email || ''}`);
   // 执行
   argv.name ? shell.exec(`git config --${type} user.name ${argv.name}`)
@@ -66,6 +66,13 @@ if (argv._.toString() === 'git-my-count') {
   argv.email ? shell.exec(`git config user.email ${argv.email}`)
              : shell.exec(`git config user.email`);
   return;
+}
+if (argv._.toString() === 'git-store') {
+  const type  = argv.type || 'global'; //全局还是局部设置
+  // 输出
+  shell.echo(`执行的命令为：git config --${type} credential.helper store}`);
+  // 执行
+  shell.exec(`git config --${type} credential.helper store}`)
 }
 
 // 全局/局部查看git config
@@ -114,6 +121,7 @@ shell.echo('npm, yarn, cnpm源设置: npm-src, 参数：type(npm, cnpm, yarn)');
 shell.echo('全局/局部设置/查看git的用户名和邮箱: git-user, 参数：type(global,local)');
 shell.echo('设置当前仓库的user和email: git-my-count, 参数：name, email');
 shell.echo('全局/局部查看git config: git-list, 参数：type(global,local)');
+shell.echo('存储git密码: git-store, 参数：type(global,local)');
 shell.echo('打开ssh代理文件: git-ssh');
 shell.echo('打开npm代理的文件: git-proxyc4');
 shell.echo('查看端口占用情况：get-port，参数：p(端口号)');

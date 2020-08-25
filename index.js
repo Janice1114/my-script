@@ -24,10 +24,19 @@ if (argv._.toString() === 'git-push') {
 // 初始化一个webpack的目录
 if (argv._.toString() === 'webp-init') {
   const type  = argv.type || 'npm'; // 使用npm yarn 还是cnpm
-  shell.echo(`执行的命令为：${type} init`);
+  shell.echo(`执行的命令为：${type} init -y`);
   shell.echo(`执行的命令为：${type} add webpack webpack-cli -D`);
-  shell.exec(`${type} init`);
+  if (argv.i === 'i webpack')
+  {
+    shell.echo(`执行的命令为：${type} install --save-dev webpack`);
+    shell.echo(`执行的命令为：${type} install --save-dev webpack-cli`);
+    shell.exec(`${type} install --save-dev webpack`);
+    shell.exec(`${type} install --save-dev webpack-cli`);
+  }
+  shell.exec(`${type} init -y`);
   shell.exec(`${type} add webpack webpack-cli -D`);
+
+
   return;
 }
 // npm, yarn, cnpm源设置

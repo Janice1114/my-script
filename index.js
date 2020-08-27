@@ -65,15 +65,14 @@ if (argv._.toString() === 'git-user') {
 }
 
 if (argv._.toString() === 'git-my-count') {
-  const type  = argv.type || 'global'; //全局还是局部设置
+  const name  = argv.name || 'Janice1114'; 
+  const email  = argv.email || '2412947593@qq.com'; 
   // 输出
-  shell.echo(`执行的命令为：git config  user.name ${argv.name || ''}`);
-  shell.echo(`执行的命令为：git config  user.email ${argv.email || ''}`);
+  shell.echo(`执行的命令为：git config  user.name ${name || ''}`);
+  shell.echo(`执行的命令为：git config  user.email ${email || ''}`);
   // 执行
-  argv.name ? shell.exec(`git config  user.name ${argv.name}`)
-            : shell.exec(`git config  user.name`);
-  argv.email ? shell.exec(`git config user.email ${argv.email}`)
-             : shell.exec(`git config user.email`);
+  shell.exec(`git config  user.name ${name}`)
+  shell.exec(`git config user.email ${email}`)
   return;
 }
 if (argv._.toString() === 'git-store') {

@@ -54,7 +54,7 @@ if (argv._.toString() === 'npm-src') {
 if (argv._.toString() === 'git-user') {
   const type  = argv.type || 'global'; //全局还是局部设置
   // 输出
-  shell.echo(`执行的命令为：git config  user.name ${argv.name || ''}`);
+  shell.echo(`执行的命令为：git config --${type} user.name ${argv.name || ''}`);
   shell.echo(`执行的命令为：git config --${type} user.email ${argv.email || ''}`);
   // 执行
   argv.name ? shell.exec(`git config --${type} user.name ${argv.name}`)
